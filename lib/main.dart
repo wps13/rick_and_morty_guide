@@ -18,7 +18,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final ThemeController _themeController = ThemeController(ThemeMode.light);
+  final ThemeController _themeController = ThemeController(ThemeMode.dark);
   late final CharactersRemoteRepository _charactersRepository;
   late final AppRouter _appRouter;
 
