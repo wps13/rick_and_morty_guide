@@ -1,6 +1,6 @@
-import 'package:rick_and_morty_guide/data/repositories/characters_repository.dart';
-import 'package:rick_and_morty_guide/data/services/api_client.dart';
-import 'package:rick_and_morty_guide/domain/models/character.dart';
+import 'characters_repository.dart';
+import '../services/api_client.dart';
+import '../../domain/models/character.dart';
 
 import '../../utils/result.dart';
 
@@ -10,9 +10,8 @@ class CharactersRemoteRepository implements CharactersRepository {
   final ApiClient _apiClient;
 
   @override
-  Future<Result<Character>> getCharacterById(int id) {
-    // TODO: implement getCharacterById
-    throw UnimplementedError();
+  Future<Result<Character>> getCharacterById(int id) async {
+    return _apiClient.getCharacter(id);
   }
 
   @override

@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:rick_and_morty_guide/data/repositories/characters_repository.dart';
-import 'package:rick_and_morty_guide/domain/models/character.dart';
+import '../../../data/repositories/characters_repository.dart';
+import '../../../domain/models/character.dart';
 
 import '../../../utils/result.dart';
 
@@ -11,6 +11,7 @@ class HomeViewModel extends ChangeNotifier {
     : _charactersRepository = charactersRepository;
 
   final CharactersRepository _charactersRepository;
+  CharactersRepository get charactersRepository => _charactersRepository;
 
   final List<String> availableStatusFilters = [
     'Todos',

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:rick_and_morty_guide/ui/home/widgets/home_character_card.dart';
-import 'package:rick_and_morty_guide/ui/home/widgets/home_error_widget.dart';
-import 'package:rick_and_morty_guide/ui/home/widgets/home_skeleton.dart';
-import 'package:rick_and_morty_guide/ui/home/widgets/home_status_filter.dart';
+import 'home_character_card.dart';
+import 'home_error_widget.dart';
+import 'home_skeleton.dart';
+import 'home_status_filter.dart';
 
 import '../view_models/home_viewmodel.dart';
+import '../../routes.dart';
 import 'home_search_field.dart';
 import 'home_title.dart';
 
@@ -99,6 +100,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                 species: character.species,
                                 locationName: character.locationName,
                                 image: character.imageUrl,
+                                onPressed: () {
+                                  Navigator.of(context).pushNamed(
+                                    AppRoutes.detail,
+                                    arguments: character.id,
+                                  );
+                                },
                               ),
                             );
                           },

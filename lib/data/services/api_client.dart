@@ -57,4 +57,25 @@ class ApiClient {
       client.close();
     }
   }
+
+  Future<Result<Character>> getCharacter(int id) async {
+    final client = _clientFactory();
+    try {
+      final uri = Uri.parse('$_baseUrl/character/$id');
+      final request = await client.getUrl(uri);
+      final response = await request.close();
+
+      if (response.statusCode == 200) {
+        final stringData = await response.transform(utf8.decoder).join();
+        final json = jsonDecode(stringData) as Map<String, dynamic>;
+        return Result.ok(Character.fromJson(json));
+      } else {
+        return Result.error(HttpException('Error on request character $id'));
+      }
+    } on Exception catch (error) {
+      return Result.error(error);
+    } finally {
+      client.close();
+    }
+  }
 }

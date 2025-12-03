@@ -1,4 +1,6 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
+import '../../ui/core/themes/colors.dart';
 
 class Character extends Equatable {
   const Character({
@@ -79,6 +81,17 @@ enum Status {
     }
   }
 
+  Color get color {
+    switch (this) {
+      case alive:
+        return RickAndMortyColors.statusAliveDark;
+      case dead:
+        return RickAndMortyColors.statusDeadDark;
+      case unknow:
+        return RickAndMortyColors.statusUnknownDark;
+    }
+  }
+
   static Status fromJson(String status) {
     final normalizedStatus = status.toLowerCase();
     switch (normalizedStatus) {
@@ -126,7 +139,8 @@ enum Gender {
   }
 
   static Gender fromJson(String gender) {
-    switch (gender) {
+    final normalizedGender = gender.toLowerCase();
+    switch (normalizedGender) {
       case 'female':
         return female;
       case 'male':
