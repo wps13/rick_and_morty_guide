@@ -30,7 +30,7 @@ class DetailInfoCard extends StatelessWidget {
               const SizedBox(width: 8),
               Text(
                 title,
-                style: const TextStyle(
+                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),

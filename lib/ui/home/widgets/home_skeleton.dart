@@ -13,14 +13,20 @@ class HomeSkeleton extends StatelessWidget {
           margin: const EdgeInsets.only(bottom: 8),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(4),
-            border: Border.all(color: Colors.green.withValues(alpha: 0.3)),
+            border: Border.all(
+              color: Theme.of(
+                context,
+              ).colorScheme.outline.withValues(alpha: 0.3),
+            ),
           ),
           child: Row(
             children: [
               Container(
                 width: 100,
                 height: 100,
-                color: Colors.grey.withValues(alpha: 0.3),
+                color: Theme.of(
+                  context,
+                ).colorScheme.onSurface.withValues(alpha: 0.3),
               ),
               const SizedBox(width: 10),
               Expanded(
@@ -32,19 +38,25 @@ class HomeSkeleton extends StatelessWidget {
                       Container(
                         width: 150,
                         height: 16,
-                        color: Colors.grey.withValues(alpha: 0.3),
+                        color: Theme.of(
+                          context,
+                        ).colorScheme.onSurface.withValues(alpha: 0.3),
                       ),
                       const SizedBox(height: 8),
                       Container(
                         width: 100,
                         height: 14,
-                        color: Colors.grey.withValues(alpha: 0.3),
+                        color: Theme.of(
+                          context,
+                        ).colorScheme.onSurface.withValues(alpha: 0.3),
                       ),
                       const SizedBox(height: 8),
                       Container(
                         width: 120,
                         height: 14,
-                        color: Colors.grey.withValues(alpha: 0.3),
+                        color: Theme.of(
+                          context,
+                        ).colorScheme.onSurface.withValues(alpha: 0.3),
                       ),
                     ],
                   ),

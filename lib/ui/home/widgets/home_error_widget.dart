@@ -13,10 +13,10 @@ class HomeErrorWidget extends StatelessWidget {
         children: [
           Image.asset('assets/images/error_image.png', height: 150),
           const SizedBox(height: 16),
-          const Text(
+          Text(
             'Ocorreu um erro ao carregar os personagens.',
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 16),
+            style: Theme.of(context).textTheme.bodyLarge,
           ),
           const SizedBox(height: 16),
           ElevatedButton(

@@ -88,7 +88,7 @@ class _DetailScreenState extends State<DetailScreen> {
                     child: Text(
                       'STATUS: ${character.status.label.toUpperCase()}',
                       textAlign: TextAlign.center,
-                      style: TextStyle(
+                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                         color: character.status.color,
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
