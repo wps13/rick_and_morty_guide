@@ -7,6 +7,7 @@ TODO
 ### Referências
 
 [Documentação oficial Flutter - Recomendações de arquitetura](https://docs.flutter.dev/app-architecture/recommendations)
+
 [Documentação oficial Flutter - Guia para arquitetura](https://docs.flutter.dev/app-architecture/guide)
 
 ## Setup
