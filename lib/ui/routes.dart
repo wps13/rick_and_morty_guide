@@ -16,22 +16,21 @@ class AppRoutes {
 class AppRouter {
   final CharactersRemoteRepository charactersRepository;
   final ThemeController themeController;
+  late final HomeViewModel homeViewModel;
 
   AppRouter({
     required this.charactersRepository,
     required this.themeController,
-  });
+  }) {
+    homeViewModel = HomeViewModel(charactersRepository: charactersRepository);
+  }
 
   Route? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case AppRoutes.home:
         return MaterialPageRoute(
           builder: (_) => MainScreen(
-            homeScreen: HomeScreen(
-              viewmodel: HomeViewModel(
-                charactersRepository: charactersRepository,
-              ),
-            ),
+            homeScreen: HomeScreen(viewmodel: homeViewModel),
             configScreen: ConfigScreen(themeController: themeController),
           ),
         );
