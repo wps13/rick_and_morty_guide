@@ -17,7 +17,7 @@ class HomeStatusFilter extends StatelessWidget {
     return Wrap(
       spacing: 4,
       children: status.map((status) {
-        return FilterChip(
+        return ChoiceChip(
           showCheckmark: false,
           label: Text(status),
           selected: currentStatus == status,

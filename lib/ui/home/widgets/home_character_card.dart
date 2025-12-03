@@ -27,23 +27,44 @@ class HomeCharacterCard extends StatelessWidget {
       ),
       child: Row(
         children: [
-          CachedNetworkImage(
-            fit: BoxFit.scaleDown,
-            imageUrl: image,
-            placeholder: (context, url) => CircularProgressIndicator(),
+          SizedBox(
+            width: 100,
+            height: 100,
+            child: CachedNetworkImage(
+              fit: BoxFit.cover,
+              imageUrl: image,
+              placeholder: (context, url) =>
+                  const Center(child: CircularProgressIndicator()),
+              errorWidget: (context, url, error) => const Icon(Icons.error),
+            ),
           ),
           const SizedBox(width: 10),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              crossAxisAlignment: .start,
-              children: [
-                Text(name),
-                const SizedBox(height: 8),
-                Text('$status - $species'),
-                const SizedBox(height: 8),
-                Text(locationName),
-              ],
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    name,
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    '$status - $species',
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    locationName,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                  ),
+                ],
+              ),
             ),
           ),
         ],
