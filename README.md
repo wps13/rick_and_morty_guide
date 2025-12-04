@@ -2,7 +2,17 @@
 
 ## Arquitetura
 
-TODO
+O projeto foi feito usando a arquitetura `MVVM` e `ChangeNotifier` para gerenciar estado, visando simplicidade e separação por camadas, facilitando criação de novas funcionalidades e manutenções futuras. Para esse projeto foi considerado cada tela como uma parte, de forma a dividir o contexto e evitar muitas responsabilidades.
+
+### Funcionalidades
+- Listagem de personagens com filtros para nome (via campo de busca) e status (por meio de chips)
+- Visualização de detalhes de um personagem
+- Integração com API
+
+### Pacotes usados
+- Pacotes nativos do flutter
+- `cached_network_image` para exibição de images com cache
+- `equatable` para criação dos modelos
 
 ### Referências
 
