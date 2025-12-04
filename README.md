@@ -7,6 +7,7 @@ O projeto foi feito usando a arquitetura `MVVM` e `ChangeNotifier` para gerencia
 ### Funcionalidades
 - Listagem de personagens com filtros para nome (via campo de busca) e status (por meio de chips)
 - Visualização de detalhes de um personagem
+- Paginação
 - Integração com API
 
 ### Pacotes usados
