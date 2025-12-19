@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../data/repositories/characters_remote_repository.dart';
+import 'package:get_it/get_it.dart';
 import 'config/widgets/config_screen.dart';
 import 'core/theme_controller.dart';
 import 'detail/view_models/detail_viewmodel.dart';
@@ -14,33 +14,22 @@ class AppRoutes {
 }
 
 class AppRouter {
-  final CharactersRemoteRepository charactersRepository;
-  final ThemeController themeController;
-  late final HomeViewModel homeViewModel;
-
-  AppRouter({
-    required this.charactersRepository,
-    required this.themeController,
-  }) {
-    homeViewModel = HomeViewModel(charactersRepository: charactersRepository);
-  }
-
   Route? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case AppRoutes.home:
         return MaterialPageRoute(
           builder: (_) => MainScreen(
-            homeScreen: HomeScreen(viewmodel: homeViewModel),
-            configScreen: ConfigScreen(themeController: themeController),
+            homeScreen: HomeScreen(viewmodel: GetIt.I<HomeViewModel>()),
+            configScreen: ConfigScreen(
+              themeController: GetIt.I<ThemeController>(),
+            ),
           ),
         );
       case AppRoutes.detail:
         final characterId = settings.arguments as int;
         return MaterialPageRoute(
           builder: (_) => DetailScreen(
-            viewmodel: DetailViewModel(
-              charactersRepository: charactersRepository,
-            ),
+            viewmodel: GetIt.I<DetailViewModel>(),
             characterId: characterId,
           ),
         );
