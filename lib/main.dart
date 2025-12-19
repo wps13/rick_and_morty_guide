@@ -1,47 +1,30 @@
 import 'package:flutter/material.dart';
-import 'data/services/api_client.dart';
+import 'di/service_locator.dart';
 import 'ui/core/theme_controller.dart';
 import 'ui/routes.dart';
-
-import 'data/repositories/characters_remote_repository.dart';
 import 'ui/core/themes/colors.dart';
 
 void main() {
+  setupServiceLocator();
   runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  final ThemeController _themeController = ThemeController(ThemeMode.dark);
-  late final CharactersRemoteRepository _charactersRepository;
-  late final AppRouter _appRouter;
-
-  @override
-  void initState() {
-    super.initState();
-    _charactersRepository = CharactersRemoteRepository(apiClient: ApiClient());
-    _appRouter = AppRouter(
-      charactersRepository: _charactersRepository,
-      themeController: _themeController,
-    );
-  }
-
-  @override
   Widget build(BuildContext context) {
+    final themeController = getIt<ThemeController>();
+    final appRouter = AppRouter();
+
     return ValueListenableBuilder<ThemeMode>(
-      valueListenable: _themeController,
+      valueListenable: themeController,
       builder: (context, themeMode, child) {
         return MaterialApp(
           theme: lightTheme,
           darkTheme: darkTheme,
           themeMode: themeMode,
-          onGenerateRoute: _appRouter.onGenerateRoute,
+          onGenerateRoute: appRouter.onGenerateRoute,
         );
       },
     );
