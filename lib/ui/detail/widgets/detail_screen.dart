@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../l10n/app_localizations.dart';
 import '../view_models/detail_viewmodel.dart';
 import 'detail_info_card.dart';
 import 'detail_info_row.dart';
@@ -28,7 +29,7 @@ class _DetailScreenState extends State<DetailScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Detalhes do Personagem'),
+        title: Text(AppLocalizations.of(context).detailScreenTitle),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.of(context).pop(),
@@ -46,11 +47,11 @@ class _DetailScreenState extends State<DetailScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text('Erro ao carregar personagem'),
+                  Text(AppLocalizations.of(context).errorLoadingCharacter),
                   ElevatedButton(
                     onPressed: () =>
                         widget.viewmodel.getCharacter(widget.characterId),
-                    child: const Text('Tentar novamente'),
+                    child: Text(AppLocalizations.of(context).retryButton),
                   ),
                 ],
               ),
@@ -86,7 +87,7 @@ class _DetailScreenState extends State<DetailScreen> {
                       border: Border.all(color: character.status.color),
                     ),
                     child: Text(
-                      'STATUS: ${character.status.label.toUpperCase()}',
+                      '${AppLocalizations.of(context).statusLabel}: ${character.status.getLabel(context).toUpperCase()}',
                       textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                         color: character.status.color,
@@ -97,38 +98,43 @@ class _DetailScreenState extends State<DetailScreen> {
                   ),
                   const SizedBox(height: 16),
                   DetailInfoCard(
-                    title: 'Informações Pessoais',
+                    title: AppLocalizations.of(context).personalInfoTitle,
                     icon: Icons.person_outline,
                     children: [
-                      DetailInfoRow(label: 'Espécie', value: character.species),
                       DetailInfoRow(
-                        label: 'Gênero',
-                        value: character.gender.label,
+                        label: AppLocalizations.of(context).speciesLabel,
+                        value: character.species,
+                      ),
+                      DetailInfoRow(
+                        label: AppLocalizations.of(context).genderLabel,
+                        value: character.gender.getLabel(context),
                       ),
                     ],
                   ),
                   const SizedBox(height: 12),
                   DetailInfoCard(
-                    title: 'Origem e Localização',
+                    title: AppLocalizations.of(context).originLocationTitle,
                     icon: Icons.location_on_outlined,
                     children: [
                       DetailInfoRow(
-                        label: 'Origem',
+                        label: AppLocalizations.of(context).originLabel,
                         value: character.originName,
                       ),
                       DetailInfoRow(
-                        label: 'Local Atual',
+                        label: AppLocalizations.of(
+                          context,
+                        ).currentLocationLabel,
                         value: character.locationName,
                       ),
                     ],
                   ),
                   const SizedBox(height: 12),
                   DetailInfoCard(
-                    title: 'Episódios',
+                    title: AppLocalizations.of(context).episodesTitle,
                     icon: Icons.tv,
                     children: [
                       DetailInfoRow(
-                        label: 'Episódios',
+                        label: AppLocalizations.of(context).episodesLabel,
                         value: character.episodesCount.toString(),
                       ),
                     ],

@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
+import '../../l10n/app_localizations.dart';
 import '../../ui/core/themes/colors.dart';
 
 class Character extends Equatable {
@@ -70,6 +71,19 @@ enum Status {
   dead,
   unknow;
 
+  String getLabel(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    switch (this) {
+      case alive:
+        return l10n.statusAlive;
+      case dead:
+        return l10n.statusDead;
+      case unknow:
+        return l10n.statusUnknown;
+    }
+  }
+
+  // Keep old label getter for backward compatibility during migration
   String get label {
     switch (this) {
       case alive:
@@ -125,6 +139,21 @@ enum Gender {
   male,
   genderless;
 
+  String getLabel(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    switch (this) {
+      case unknown:
+        return l10n.genderUnknown;
+      case female:
+        return l10n.genderFemale;
+      case male:
+        return l10n.genderMale;
+      case genderless:
+        return l10n.genderGenderless;
+    }
+  }
+
+  // Keep old label getter for backward compatibility during migration
   String get label {
     switch (this) {
       case unknown:

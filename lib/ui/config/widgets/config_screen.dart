@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../l10n/app_localizations.dart';
 import '../../core/theme_controller.dart';
 
 class ConfigScreen extends StatelessWidget {
@@ -9,13 +10,15 @@ class ConfigScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Configurações')),
+      appBar: AppBar(
+        title: Text(AppLocalizations.of(context).configScreenTitle),
+      ),
       body: Center(
         child: ValueListenableBuilder<ThemeMode>(
           valueListenable: themeController,
           builder: (context, themeMode, child) {
             return SwitchListTile(
-              title: const Text('Tema Escuro'),
+              title: Text(AppLocalizations.of(context).darkTheme),
               value: themeMode == ThemeMode.dark,
               onChanged: (value) {
                 themeController.toggleTheme();

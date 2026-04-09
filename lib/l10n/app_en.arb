@@ -1,0 +1,113 @@
+{
+  "@@locale": "en",
+  
+  "detailScreenTitle": "Character Details",
+  "@detailScreenTitle": {
+    "description": "Title for the character detail screen"
+  },
+  
+  "configScreenTitle": "Settings",
+  "@configScreenTitle": {
+    "description": "Title for the configuration screen"
+  },
+  
+  "darkTheme": "Dark Theme",
+  "@darkTheme": {
+    "description": "Label for dark theme toggle"
+  },
+  
+  "errorLoadingCharacter": "Error loading character",
+  "@errorLoadingCharacter": {
+    "description": "Error message when character fails to load"
+  },
+  
+  "errorLoadingCharacters": "An error occurred while loading characters.",
+  "@errorLoadingCharacters": {
+    "description": "Error message when characters list fails to load"
+  },
+  
+  "retryButton": "Try again",
+  "@retryButton": {
+    "description": "Button label to retry loading"
+  },
+  
+  "statusAlive": "Alive",
+  "@statusAlive": {
+    "description": "Status label for alive characters"
+  },
+  
+  "statusDead": "Dead",
+  "@statusDead": {
+    "description": "Status label for dead characters"
+  },
+  
+  "statusUnknown": "Unknown",
+  "@statusUnknown": {
+    "description": "Status label for unknown status"
+  },
+  
+  "genderMale": "Male",
+  "@genderMale": {
+    "description": "Gender label for male"
+  },
+  
+  "genderFemale": "Female",
+  "@genderFemale": {
+    "description": "Gender label for female"
+  },
+  
+  "genderGenderless": "Genderless",
+  "@genderGenderless": {
+    "description": "Gender label for genderless"
+  },
+  
+  "genderUnknown": "Unknown",
+  "@genderUnknown": {
+    "description": "Gender label for unknown gender"
+  },
+  
+  "personalInfoTitle": "Personal Information",
+  "@personalInfoTitle": {
+    "description": "Title for personal information card"
+  },
+  
+  "originLocationTitle": "Origin and Location",
+  "@originLocationTitle": {
+    "description": "Title for origin and location card"
+  },
+  
+  "episodesTitle": "Episodes",
+  "@episodesTitle": {
+    "description": "Title for episodes card"
+  },
+  
+  "speciesLabel": "Species",
+  "@speciesLabel": {
+    "description": "Label for species field"
+  },
+  
+  "genderLabel": "Gender",
+  "@genderLabel": {
+    "description": "Label for gender field"
+  },
+  
+  "originLabel": "Origin",
+  "@originLabel": {
+    "description": "Label for origin field"
+  },
+  
+  "currentLocationLabel": "Current Location",
+  "@currentLocationLabel": {
+    "description": "Label for current location field"
+  },
+  
+  "episodesLabel": "Episodes",
+  "@episodesLabel": {
+    "description": "Label for episodes field"
+  },
+  
+  "statusLabel": "STATUS",
+  "@statusLabel": {
+    "description": "Label prefix for status display"
+  }
+}

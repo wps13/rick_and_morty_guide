@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:network_image_mock/network_image_mock.dart';
 import 'package:rick_and_morty_guide/domain/models/character.dart';
@@ -8,6 +9,7 @@ import 'package:rick_and_morty_guide/ui/home/widgets/home_screen.dart';
 import 'package:rick_and_morty_guide/ui/home/widgets/home_character_card.dart';
 import 'package:rick_and_morty_guide/ui/home/widgets/home_error_widget.dart';
 import 'package:rick_and_morty_guide/ui/home/widgets/home_skeleton.dart';
+import 'package:rick_and_morty_guide/l10n/app_localizations.dart';
 
 class MockHomeViewModel extends Mock implements HomeViewModel {}
 
@@ -36,7 +38,17 @@ void main() {
   });
 
   Widget createWidgetUnderTest() {
-    return MaterialApp(home: HomeScreen(viewmodel: mockViewModel));
+    return MaterialApp(
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [Locale('pt'), Locale('en')],
+      locale: const Locale('pt'),
+      home: HomeScreen(viewmodel: mockViewModel),
+    );
   }
 
   group('HomeScreen', () {

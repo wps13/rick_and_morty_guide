@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../l10n/app_localizations.dart';
 
 class HomeErrorWidget extends StatelessWidget {
   const HomeErrorWidget({super.key, required this.onRetry});
@@ -14,14 +15,14 @@ class HomeErrorWidget extends StatelessWidget {
           Image.asset('assets/images/error_image.png', height: 150),
           const SizedBox(height: 16),
           Text(
-            'Ocorreu um erro ao carregar os personagens.',
+            AppLocalizations.of(context).errorLoadingCharacters,
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.bodyLarge,
           ),
           const SizedBox(height: 16),
           ElevatedButton(
             onPressed: onRetry,
-            child: const Text('Tentar novamente'),
+            child: Text(AppLocalizations.of(context).retryButton),
           ),
         ],
       ),
